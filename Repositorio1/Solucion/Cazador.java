@@ -16,6 +16,11 @@ public class Cazador extends Personaje implements ClasePersonaje {
     public String getNombreClase() {
         return "Cazador";
     }
+
+    @Override
+    public void atacar() {
+        System.out.println(nombre + " lanza un ataque con su arco.");
+    }
 } 
     
 

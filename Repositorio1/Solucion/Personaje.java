@@ -10,6 +10,8 @@ public abstract class Personaje {
     protected int ataqueFisico;
     protected int afinidadMagica;
     protected Inventario inventario;
+    protected int nivel;
+    protected int EXP;
     protected ArrayList<Item> vestuario;
     protected Item itemPrimario;
     protected Item itemSecundario;
@@ -23,55 +25,8 @@ public abstract class Personaje {
         this.vestuario = new ArrayList<>(5);
     }
 
-    // Métodos para actualizar los atributos
-    public void setVidaMaxima(int vidaMaxima) {
-        this.vidaMaxima = vidaMaxima;
-    }
-
-    public void setEstaminaMaxima(int estaminaMaxima) {
-        this.estaminaMaxima = estaminaMaxima;
-    }
-
-    public void setAtaqueFisico(int ataqueFisico) {
-        this.ataqueFisico = ataqueFisico;
-    }
-
-    public void setAfinidadMagica(int afinidadMagica) {
-        this.afinidadMagica = afinidadMagica;
-    }
-
-    // Métodos para obtener los atributos
-    public String getNombre() {
-        return nombre;
-    }
-
-    public char getSexo() {
-        return sexo;
-    }
-
-    public int getVidaMaxima() {
-        return vidaMaxima;
-    }
-
-    public int getVidaActual() {
-        return vidaActual;
-    }
-
-    public int getEstaminaMaxima() {
-        return estaminaMaxima;
-    }
-
-    public int getEstaminaActual() {
-        return estaminaActual;
-    }
-
-    public int getAtaqueFisico() {
-        return ataqueFisico;
-    }
-
-    public int getAfinidadMagica() {
-        return afinidadMagica;
-    }
+    // Método de ataque abstracto que cada subclase implementará
+    public abstract void atacar();
 
     public void setItemPrimario(Item itemPrimario) {
         this.itemPrimario = itemPrimario;
@@ -82,8 +37,8 @@ public abstract class Personaje {
     }
 
     public void imprimirInformacionDePersonaje() {
-        System.out.printf("Nombre: %s\nVida Máxima: %d\nEstamina Máxima: %d\nAtaque Físico: %d\nAfinidad Mágica: %d\n",
-                nombre, vidaMaxima, estaminaMaxima, ataqueFisico, afinidadMagica);
+        System.out.printf("Nombre: %s\nSexo: %s\nVida: %d/%d\nEstamina: %d/%d\nAtaque Fisico: %d\nAfinidad Magica: %d\n",
+                nombre, sexo, vidaActual, vidaMaxima, estaminaActual, estaminaMaxima, ataqueFisico, afinidadMagica);
         Item.imprimirInformacionDeItems(itemPrimario, itemSecundario);
         inventario.imprimirInventario();
     }

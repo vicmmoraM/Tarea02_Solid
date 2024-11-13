@@ -1,4 +1,4 @@
-public class Mago extends Personaje implements ClasePersonaje {
+public class Mago extends Personaje implements ClasePersonaje, AtaqueMago {
     public Mago(String nombre, char sexo) {
         super(nombre, sexo);
         configurarAtributos();
@@ -15,5 +15,15 @@ public class Mago extends Personaje implements ClasePersonaje {
     @Override
     public String getNombreClase() {
         return "Mago";
+    }
+
+    @Override
+    public void atacar() {
+        atacarMagia();
+    }
+
+    @Override
+    public void atacarMagia() {
+        System.out.println(nombre + " lanza un hechizo mágico.");
     }
 }

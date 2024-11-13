@@ -16,4 +16,9 @@ public class Guerrero extends Personaje implements ClasePersonaje {
     public String getNombreClase() {
         return "Guerrero";
     }
+
+    @Override
+    public void atacar() {
+        System.out.println(nombre + " realiza un ataque físico poderoso.");
+    }
 }
